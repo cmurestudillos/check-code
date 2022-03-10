@@ -1,0 +1,43 @@
+.input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  resize: none;
+  width: 100%;
+  min-height: 30rem !important;
+}
+
+.mh-35{
+  min-height: 35rem;
+}
+
+.submit {
+  display: block;
+  margin: 10px auto;
+}
+
+.conversation {
+  padding: 6px;
+}
+
+.comment {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.editor {
+  margin-top: 20px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.buttons{
+  width: 15rem;
+}
