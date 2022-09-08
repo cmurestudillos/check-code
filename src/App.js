@@ -1,15 +1,12 @@
 import React from 'react';
 // Enrutamiento
 import Router from './routes/Router';
-// Estilos
-import 'antd/dist/antd.min.css';
+// Esticos CSS
 import 'react-diff-view/style/index.css';
-import './App.css';
 
 function App() {
-
   return (
-    <div className="container">
+    <div id="page-wrapper">
       <Router /> 
     </div>
   );

@@ -37,7 +37,7 @@ const Editor = ({onSubmit}) => {
         <div id="editor">
             <Input.TextArea rows={4} value={value} onChange={updateValue} />
             <Button className="submit" type="primary" onClick={submitDraft}>
-                Add Comment
+                Añadir comentario
             </Button>
         </div>
     );

@@ -1,19 +1,21 @@
 import React, {Fragment} from 'react';
-import logo from '../../assets/img/logo.svg';
+import logo from '../../images/logo.svg';
 
 const Header = () => {
     return ( 
         <Fragment>
-            <header className="pb-3 mb-4 border-bottom">
-                <div className="d-flex">
-                    <div className="p-2 flex-grow-1">
-                        <span className="d-flex align-items-center text-dark text-decoration-none">
-                            <img src={logo} width={64} height={64} alt="Diff Checked Code" title="Diff Checked Code" />
-                            <span className="fs-4">Diff Check</span>
-                        </span>                        
-                    </div>
-                </div>                
-            </header>  
+            <header id="header">
+                <h1>
+                    <img src={logo} alt="Logo" />
+                    <a href="/">Diff Check</a> by Carlos Mur
+                </h1>
+
+                <nav id="nav">
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                    </ul>
+                </nav>
+            </header>       
         </Fragment>
     );
 }

@@ -33,60 +33,60 @@ const TextFile = () => {
         <Conversation changeKey={changeKey} comments={comments} onSubmitComment={addComment} />
     ));
 
-    const limpiar = useCallback( () => {
+    const limpiar = () => {
         window.location.reload();
-    });
+    };
 
     return ( 
         <Fragment>
-            <main>
-                <div className="py-2">
-                    <div className="row align-items-md-stretch">
-                        <div className="col-6">
-                            <div className="w-100 mh-35 p-2 bg-light border rounded-3">
-                                <h2>Original</h2>
-                                <Input.TextArea className="text" rows={10} placeholder="sin cambios..." {...oldText} />
-                            </div>
-                        </div>
-                        <div className="col-6">
-                            <div className="w-100 mh-35 p-2 bg-light border rounded-3">
-                                <h2>Modificado</h2>
-                                <Input.TextArea className="text" rows={10} placeholder="con cambios..." {...newText} />
-                            </div>
-                        </div>
-                    </div>
+            <section id="main" className="container">
+                <section className="box special">
+                    <header className="major">
+                        <h2>Compara y encuentra la diferencia entre dos textos y/o codigo de una manera simple y ordenada.</h2>
+                        <p> Diff Check "<strong>Text</strong>" comparará el texto para encontrar la diferencia entre los dos textos (<i>El original y el modificado</i>).
+                        Simplemente pegue el contenido de sus archivos y haga clic en <strong>"Mostrar diferencias"</strong>.   </p>
+                    </header>
+                </section>     
 
-                    <div className="row">
-                        <div className="col-6">
-                            <button type='button' className="btn btn-success m-4 float-start btn-lg buttons" onClick={updateDiffText}>
-                                Mostrar Diferencias
-                            </button>                            
-                        </div>
-                        <div className="col-6">
-                            <button type='button' className="btn btn-primary m-4 float-end btn-lg buttons" onClick={limpiar}>
-                                Limpiar
-                            </button>                            
-                        </div>
+                <section className="box special features">
+                    <div className="features-row">
+                        <section>
+                            <h3>Original</h3>
+                            <p><Input.TextArea className="text" rows={10} placeholder="sin cambios..." {...oldText} /></p>
+                            <ul className="actions special">
+                                <li><span className="button alt primary" onClick={updateDiffText}>Mostrar Diferencias</span></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Modificado</h3>
+                            <p><Input.TextArea className="text" rows={10} placeholder="con cambios..." {...newText} /></p>
+                            <ul className="actions special">
+                                <li><span className="button alt" onClick={limpiar}>Limpiar</span></li>
+                            </ul>
+                        </section>
                     </div>
-                    
-                    {type !== undefined &&
-                        <main className='shadow p-3 mb-5 bg-body rounded'>
-                            <Fragment>
-                                <h1>Comparativa</h1>
-                                <hr></hr>
-                                <Diff viewType="split" diffType={type} hunks={hunks || EMPTY_HUNKS}>
-                                    {hunks =>
-                                        hunks.map(hunk => (
-                                            <Hunk key={hunk.content} hunk={hunk} codeEvents={codeEvents} widgets={widgets} />
-                                        ))
-                                    }
-                                </Diff> 
-                            </Fragment>
-                        </main>
-                    }
-                   
-                </div>
-            </main>
+                </section>
+
+                {type !== undefined && 
+                    <Fragment>
+                        <h3>Comparativa</h3>
+                        <hr></hr>
+                        <div className="row">
+                            <div className="col-12 col-12-narrower">
+                                <section className="box special">
+                                    <Diff viewType="split" diffType={type} hunks={hunks || EMPTY_HUNKS}>
+                                        {hunks =>
+                                            hunks.map(hunk => (
+                                                <Hunk key={hunk.content} hunk={hunk} codeEvents={codeEvents} widgets={widgets} />
+                                            ))
+                                        }
+                                    </Diff> 
+                                </section>
+                            </div>
+                        </div>                    
+                    </Fragment>
+                }
+            </section>    
         </Fragment>
      );
 }
