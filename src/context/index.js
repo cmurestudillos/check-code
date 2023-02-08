@@ -1,5 +1,5 @@
 import React, {useState, useCallback} from 'react';
-import {Button, Input} from 'antd';
+import {Input} from 'antd';
 import {useImmer} from '../hooks';
 
 export const useConversations = () => {
@@ -35,10 +35,10 @@ const Editor = ({onSubmit}) => {
 
     return (
         <div id="editor">
-            <Input.TextArea rows={4} value={value} onChange={updateValue} />
-            <Button className="submit" type="primary" onClick={submitDraft}>
-                Añadir comentario
-            </Button>
+            <p><Input.TextArea className='text' rows={4} value={value} onChange={updateValue} /></p>
+            <ul className="actions special">
+                <li><span className="button alt" onClick={submitDraft}>Añadir comentario</span></li>
+            </ul>
         </div>
     );
 };
